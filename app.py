@@ -76,7 +76,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 progress_placeholder = st.empty()
 
-# 🎙️ Transcrição em blocos
+# Transcrição em blocos
 def transcribe_audio_offline(audio_file):
     try:
         with open("temp_audio.mp3", "wb") as f:
@@ -112,7 +112,7 @@ def transcribe_audio_offline(audio_file):
         os.remove("temp_audio.mp3")
         os.remove("temp_audio.wav")
 
-        # 🧹 Limpa placeholders após a transcrição
+        # Limpa placeholders após a transcrição
         status_placeholder.empty()
         progress_placeholder.empty()
 
@@ -154,7 +154,7 @@ def update_progress_bar(percent):
 """
     progress_placeholder.markdown(progress_bar_html, unsafe_allow_html=True)
 
-# 🌐 Tradução com Gemini
+# Tradução com Gemini
 def translate_text_gemini(text, target_language="pt-BR"):
     try:
         model = genai.GenerativeModel("models/gemini-1.5-flash")
@@ -165,7 +165,7 @@ def translate_text_gemini(text, target_language="pt-BR"):
         st.error(f"Erro na tradução com Gemini: {e}")
         return None
 
-# 🌟 Aplicação principal
+# Aplicação principal
 def main():
     st.header("Transcrição & Tradução com Gemini")
 
